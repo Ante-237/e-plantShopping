@@ -249,21 +249,22 @@ function ProductList({ onHomeClick }) {
     };
     const handlePlantsClick = (e) => {
         e.preventDefault();
-        setShowPlants(true); 
-        setShowCart(false); 
-
-    const handleContinueShopping = (e) => {
-        e.preventDefault();
+        setShowPlants(true);
         setShowCart(false);
-    };
 
-    const handleAddToCart = (product) => {
-        dispatch(addItem(product));
-        setAddedToCart((prevState) => ({
-            ...prevState,
-            [product.name]: true, 
-        }));
-    };
+        const handleContinueShopping = (e) => {
+            e.preventDefault();
+            setShowCart(false);
+        };
+
+        const handleAddToCart = (product) => {
+            dispatch(addItem(product));
+            setAddedToCart((prevState) => ({
+                ...prevState,
+                [product.name]: true,
+            }));
+        };
+    }
 
     return (
         <div>
@@ -310,6 +311,7 @@ function ProductList({ onHomeClick }) {
             )}
         </div>
     );
+
 }
 
 export default ProductList;
